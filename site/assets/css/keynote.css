@@ -174,6 +174,10 @@ body.page-home > .container[role="main"] { margin-top: 40px !important; }
   align-items: center;
   padding: 12px 0 64px;
 }
+.intro-copy {
+  min-width: 0;
+  max-width: 100%;
+}
 .intro-copy > .eyebrow {
   font-size: var(--type-small);
   line-height: 1.45;
@@ -190,6 +194,7 @@ body.page-home > .container[role="main"] { margin-top: 40px !important; }
   line-height: 1.05;
   letter-spacing: -.045em;
   margin: 0 0 16px;
+  text-wrap: wrap;
 }
 .intro-copy h1 span {
   display: block;
@@ -203,20 +208,24 @@ body.page-home > .container[role="main"] { margin-top: 40px !important; }
 }
 .intro-role a { font-weight: 500; }
 .intro-lead {
-  max-width: 34em;
+  max-width: min(34em, 100%);
   margin: 0 0 12px;
   font-size: var(--type-lead);
   line-height: 1.45;
   font-weight: 500;
   letter-spacing: -.02em;
   color: var(--global-text-color);
+  overflow-wrap: break-word;
+  text-wrap: wrap;
 }
 .intro-copy > p:not(.eyebrow):not(.intro-role):not(.intro-lead) {
   color: var(--global-text-color-light);
   font-size: 15.5px;
   line-height: 1.65;
-  max-width: 38em;
+  max-width: min(38em, 100%);
   margin: 0;
+  overflow-wrap: break-word;
+  text-wrap: wrap;
 }
 .intro-portrait {
   position: relative;
@@ -408,9 +417,8 @@ a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
   transition: transform .4s var(--ui-ease), box-shadow .4s ease;
 }
 .research-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   aspect-ratio: 8 / 5;
   width: 100%;
   border: 0;
@@ -420,13 +428,21 @@ a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
   overflow: hidden;
 }
 .research-image img, .research-image img[src$=".svg"] {
+  grid-area: 1 / 1;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   padding: 0;
   object-fit: contain;
+  object-position: center;
   border: 0;
 }
+.research-image img.diagram-dark,
+.method-figure img.diagram-dark { display: none; }
+html[data-theme="dark"] .research-image img.diagram-light,
+html[data-theme="dark"] .method-figure img.diagram-light { display: none; }
+html[data-theme="dark"] .research-image img.diagram-dark,
+html[data-theme="dark"] .method-figure img.diagram-dark { display: block; }
 .research-card-copy {
   display: flex;
   flex-direction: column;
@@ -619,7 +635,7 @@ html[data-theme="dark"] .contact-strip { background: #171719; border: 1px solid 
 .research-row {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
-  align-items: start;
+  align-items: center;
   padding: 14px;
   gap: 28px;
   margin: 0;
@@ -646,6 +662,7 @@ html[data-theme="dark"] .contact-strip { background: #171719; border: 1px solid 
 .research-row-footer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 8px 14px;
   align-items: baseline;
   font-size: 14px;
@@ -660,7 +677,7 @@ html[data-theme="dark"] .contact-strip { background: #171719; border: 1px solid 
   margin: 0;
   border-radius: 24px;
   background: var(--ui-surface);
-  align-items: start;
+  align-items: center;
   box-shadow: var(--ui-shadow);
 }
 .publication-feature > .research-image { border-radius: 16px; }
@@ -790,12 +807,7 @@ footer.sticky-bottom {
 }
 footer.sticky-bottom .container { padding-inline: 32px; text-align: left; color: var(--global-text-color-light); }
 footer a { color: var(--global-text-color-light); }
-/* Both assets exist locally; the site's explicit theme selects the diagram. */
-.research-image .diagram-dark, .method-figure .diagram-dark { display: none; }
-html[data-theme="dark"] .research-image .diagram-light,
-html[data-theme="dark"] .method-figure .diagram-light { display: none; }
-html[data-theme="dark"] .research-image .diagram-dark,
-html[data-theme="dark"] .method-figure .diagram-dark { display: block; }
+/* Theme-specific diagrams are selected above, next to .research-image. */
 @keyframes keynote-enter {
   from { opacity: .28; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
@@ -875,7 +887,7 @@ html[data-theme="dark"] .method-figure .diagram-dark { display: block; }
   .intro-copy h1 { margin-bottom: 14px; }
   .intro-copy > .eyebrow { max-width: 28em; margin-bottom: 14px; }
   .intro-role { margin-bottom: 16px; }
-  .intro-lead { font-size: 1.125rem; max-width: 34em; }
+  .intro-lead { font-size: 1.0625rem; max-width: 100%; }
   .intro-portrait { width: min(100%, 380px); max-width: none; justify-self: center; padding: 6px; border-radius: 24px; margin: 4px auto 0; }
   .intro-portrait img { aspect-ratio: 1; border-radius: 18px; object-position: center; }
   .home-section { padding: 32px 0; }
@@ -942,8 +954,8 @@ html[data-theme="dark"] .method-figure .diagram-dark { display: block; }
     --ui-surface: #fff;
     --ui-inset: #fff;
   }
-  .research-image .diagram-dark, .method-figure .diagram-dark { display: none !important; }
-  .research-image .diagram-light, .method-figure .diagram-light { display: block !important; }
+  .research-image img.diagram-dark, .method-figure img.diagram-dark { display: none !important; }
+  .research-image img.diagram-light, .method-figure img.diagram-light { display: block !important; }
 }
 /* Keep the face unobstructed when the portrait becomes narrower. */
 @media (max-width: 1050px) {
