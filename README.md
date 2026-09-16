@@ -21,10 +21,16 @@ npm run dev
 - Publications：`Physics-Consistent Safe RL for Aerial Manipulation`，第二作者，拟投 ICRA 2027，状态为准备中。
 - CV：教育、研究兴趣、奖项、研究与项目经历、实习、技能及联系方式。
 - Updates：5 条依据简历时间线整理的动态。
-- 研究配图：基于简历绘制的 SVG 方法示意图，不是实验照片或论文原图。
+- 研究配图：基于简历绘制的 SVG 方法示意图，不是实验照片或论文原图。每项研究均有 `overview.svg` 和 `overview-dark.svg` 两个主题版本。
 - 下载简历：`site/assets/pdf/Huang-Xiwen-CV.pdf`，来自 `Huang-Xiwen-CV-ouyang-style_9.pdf`，内容保持原件。旧地址 `CV_general.pdf` 也指向同一份内容。
 
-按站主 2026-09-17 的要求，**首页 About me 及其上方的正文暂未改写**，其中仍有待后续更新的光子学背景描述。全站导航姓名、标题、元数据、页脚及 About me 以下内容已个性化。
+按站主 2026-09-17 的要求，**首页 About me 及其上方的正文暂未改写**，其中仍有待后续更新的光子学背景描述。UI 改版调整了这一区域的排版与布局，正文保持不变。全站导航姓名、标题、元数据、页脚及 About me 以下内容已个性化。
+
+## 视觉系统
+
+使用系统无衬线字体、黑白与冷蓝色、透明导航、圆角研究卡片、大字号层级和轻量入场动效。支持移动端导航、深色主题、减少动态效果设置和 CV 打印。无需新的运行依赖。
+
+全站颜色和间距集中在 `site/assets/css/keynote.css`。它在原有样式之后加载，正文内容仍在各 HTML 页面中。
 
 ## 修改位置
 
@@ -41,6 +47,8 @@ npm run dev
 | 头像 | `site/assets/img/prof_pic.jpg` |
 | 原有布局与主题 | `site/assets/css/main.css` |
 | 个性化内容的补充样式 | `site/assets/css/profile.css` |
+| Apple Keynote 风格的全站视觉系统 | `site/assets/css/keynote.css` |
+| 导航滚动状态与轻量入场动效 | `site/assets/js/keynote.js` |
 | 站点地图 | `site/sitemap.xml` |
 
 这是静态 HTML 项目。修改姓名、联系方式或项目摘要时，需要同步相关页面；更新下载简历时，也同步 `CV_general.pdf` 这一兼容地址。新增／删除页面后同步站点地图。编辑 `site/`，不要编辑自动生成的 `dist/`。
