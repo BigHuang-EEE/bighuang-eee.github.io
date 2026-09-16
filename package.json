@@ -1,0 +1,14 @@
+{
+  "name": "academic-personal-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Complete static replica of Chengle Fan's academic website",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs site",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs dist",
+    "check": "python3 scripts/check.py"
+  }
+}
