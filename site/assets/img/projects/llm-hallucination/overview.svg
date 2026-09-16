@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="450" viewBox="0 0 720 450" role="img" aria-labelledby="title desc">
+<title id="title">Learning when to abstain — method overview</title>
+<desc id="desc">A method schematic showing question-answer data, PEFT fine-tuning of TinyLlama-1.1B, and an answer or learned abstention token.</desc>
+<rect width="720" height="450" rx="12" fill="#f3f7fb"/>
+<path d="M36 66H684" stroke="#cddce8" stroke-width="2"/>
+<text x="36" y="43" fill="#245e89" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="2">METHOD OVERVIEW</text>
+<rect x="28" y="113" width="188" height="128" rx="10" fill="white" stroke="#a8c2d8" stroke-width="2"/>
+<text x="122" y="167" text-anchor="middle" fill="#24354a" font-family="Arial,sans-serif" font-size="25" font-weight="600">Q&amp;A</text>
+<text x="122" y="203" text-anchor="middle" fill="#24354a" font-family="Arial,sans-serif" font-size="25" font-weight="600">dataset</text>
+<path d="M223 177h33m-8-7 8 7-8 7" fill="none" stroke="#286b9b" stroke-width="3"/>
+<rect x="266" y="113" width="188" height="128" rx="10" fill="white" stroke="#a8c2d8" stroke-width="2"/>
+<text x="360" y="167" text-anchor="middle" fill="#24354a" font-family="Arial,sans-serif" font-size="25" font-weight="600">TinyLlama</text>
+<text x="360" y="203" text-anchor="middle" fill="#24354a" font-family="Arial,sans-serif" font-size="25" font-weight="600">+ PEFT</text>
+<path d="M461 177h33m-8-7 8 7-8 7" fill="none" stroke="#286b9b" stroke-width="3"/>
+<rect x="504" y="113" width="188" height="128" rx="10" fill="white" stroke="#a8c2d8" stroke-width="2"/>
+<text x="598" y="167" text-anchor="middle" fill="#24354a" font-family="Arial,sans-serif" font-size="25" font-weight="600">Answer</text>
+<text x="598" y="203" text-anchor="middle" fill="#24354a" font-family="Arial,sans-serif" font-size="25" font-weight="600">or &lt;idk&gt;</text>
+<text x="180" y="325" text-anchor="middle" fill="#176298" font-family="Arial,sans-serif" font-size="38" font-weight="700">1.1B</text>
+<text x="180" y="365" text-anchor="middle" fill="#55677a" font-family="Arial,sans-serif" font-size="24">Model parameters</text>
+<text x="540" y="325" text-anchor="middle" fill="#176298" font-family="Arial,sans-serif" font-size="38" font-weight="700">&lt;idk&gt;</text>
+<text x="540" y="365" text-anchor="middle" fill="#55677a" font-family="Arial,sans-serif" font-size="24">Learned abstention</text>
+<text x="360" y="422" text-anchor="middle" fill="#637588" font-family="Arial,sans-serif" font-size="20">Research schematic · Xiwen Huang</text></svg>

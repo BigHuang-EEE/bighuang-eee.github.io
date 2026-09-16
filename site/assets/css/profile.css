@@ -1,0 +1,75 @@
+/* Styles scoped to the personalized research, updates, and CV content. */
+.method-figure {
+  margin: 1.5rem 0 2.5rem;
+}
+.method-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.method-figure figcaption {
+  margin-top: .85rem;
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+.research-image img[src$=".svg"] {
+  padding: 0;
+}
+.publication-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  align-items: start;
+  gap: 2.75rem;
+  margin: 2rem 0 3rem;
+}
+.manuscript-entry h3 {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin: .6rem 0 .85rem;
+}
+.manuscript-entry h3 a {
+  color: var(--global-text-color);
+}
+.manuscript-entry .eyebrow {
+  margin-top: 0;
+}
+.cv-contact {
+  margin-top: 1.3rem;
+  font-size: .9375rem;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.cv-entry .research-status {
+  margin-bottom: 1rem;
+}
+.update-date {
+  width: 20%;
+  white-space: nowrap;
+}
+.news td > a {
+  display: inline-block;
+  margin-bottom: .35rem;
+  font-weight: 500;
+}
+.news td p {
+  margin-bottom: .9rem;
+}
+@media (max-width: 680px) {
+  .publication-feature {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .update-date {
+    width: auto;
+    white-space: normal;
+    min-width: 5.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .navbar-brand.title {
+    font-size: 1.05rem;
+    margin-right: .4rem;
+  }
+}

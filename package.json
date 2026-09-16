@@ -2,9 +2,11 @@
   "name": "academic-personal-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Complete static replica of Chengle Fan's academic website",
+  "description": "Silver Xiwen Huang \u2014 robotics, physical intelligence, and machine learning",
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "node scripts/serve.mjs site",
     "build": "node scripts/build.mjs",
