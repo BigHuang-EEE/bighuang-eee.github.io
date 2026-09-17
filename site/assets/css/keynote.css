@@ -769,7 +769,7 @@ html[data-theme="dark"] .contact-strip { background: #171719; border: 1px solid 
 .cv-readable-contact { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0 0 20px; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
 .cv-readable-contact a { color: var(--global-text-color-light); }
 .cv-readable-section { padding: 26px 0 30px; border-top: 1px solid var(--global-divider-color); }
-.page-cv .cv-readable-section { scroll-margin-top: 96px; }
+.page-cv .cv-readable-section { scroll-margin-top: 0; }
 .cv-readable-section h2 { margin: 0 0 19px; font-size: clamp(22px, 2.5vw, 29px); line-height: 1.2; letter-spacing: -.025em; }
 .cv-readable-section h3 { margin: 24px 0 8px; font-size: 17px; line-height: 1.4; letter-spacing: -.01em; }
 .cv-readable-section > h3:first-of-type { margin-top: 0; }
@@ -898,7 +898,7 @@ footer a { color: var(--global-text-color-light); }
   .cv-nav li + li { margin: 0; }
   .cv-nav a { white-space: nowrap; padding: 9px 13px; border: 0; border-radius: 100px; font-size: 13px; }
   .cv-nav a[aria-current="location"] { background: var(--global-theme-color); color: #fff; }
-  .page-cv .cv-readable-section { scroll-margin-top: 132px; }
+  .page-cv .cv-readable-section { scroll-margin-top: 40px; }
 }
 @media (max-width: 760px) {
   body.fixed-top-nav { padding-top: 60px; }
