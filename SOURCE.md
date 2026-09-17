@@ -4,7 +4,7 @@
 
 - 站主：Silver Xiwen Huang / Xiwen Huang
 - 主联系邮箱：standingfloating@gmail.com
-- 本次研究、论文、CV、动态更新依据：站主提供的 `Huang-Xiwen-CV-ouyang-style_9.pdf`。
+- 初始研究、论文、CV、动态内容依据：站主提供的 `Huang-Xiwen-CV-ouyang-style_9.pdf`。当前 CV 页及下载以私有 CV 仓库的 `Huang-Xiwen-CV.pdf` 为准。
 - 更新时间：2026-09-17。
 - 两个可下载 PDF 文件与所提供原件逐字节一致；原件中的学术邮箱和电话号码保持不变。
 

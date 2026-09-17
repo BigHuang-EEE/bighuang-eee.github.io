@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { readCV, writeCV, versionCVLinks } from './cv.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -21,6 +22,7 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await cp(path.join(root, 'site'), output, { recursive: true });
 await writeCV(output, cv);
+execFileSync('python3', [path.join(root, 'scripts/render_cv.py'), cv.source, path.join(output, 'cv/index.html')], { stdio: 'inherit' });
 console.log(`CV: ${cv.source} (${cv.version})`);
 
 async function transform(directory) {

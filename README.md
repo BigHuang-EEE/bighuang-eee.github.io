@@ -19,7 +19,7 @@ npm run dev
 
 - Research：空中操作安全强化学习、LLM 幻觉与弃答、通用类血管结构分割、可微仿真四足机器人运动策略，共 4 个项目及详情页。
 - Publications：`Physics-Consistent Safe RL for Aerial Manipulation`，第二作者，拟投 ICRA 2027，状态为准备中。
-- CV：直接预览并下载自动同步的最新版 PDF。
+- CV：把最新版 PDF 的文字自动整理成适合桌面和手机阅读的网页，并提供原版 PDF 下载。
 - Updates：5 条依据简历时间线整理的动态。
 - 研究配图：基于简历绘制的 SVG 方法示意图，不是实验照片或论文原图。每项研究均有 `overview.svg` 和 `overview-dark.svg` 两个主题版本。
 - 下载简历：唯一维护源为私有仓库 `BigHuang-EEE/CV` 的 `Huang-Xiwen-CV.pdf`。网站中的 PDF 是自动同步的发布副本；旧地址 `CV_general.pdf` 保持兼容。
@@ -95,13 +95,13 @@ git push
 
 ## 简历自动同步
 
-数据流：`CV/Huang-Xiwen-CV.pdf` → CV 仓库的同步 Action → 网站仓库 PDF 副本 → 现有 Pages Action → 网站。
+数据流：`CV/Huang-Xiwen-CV.pdf` → CV 仓库的同步 Action → 网站仓库 PDF 副本 → Pages 构建时从 PDF 生成可阅读 HTML → 网站。
 
-- **本地预览**：`npm run dev` 每次收到 PDF 请求时读取相邻的 `../CV/Huang-Xiwen-CV.pdf`。更新文件后重新打开下载链接即可，不必重启服务。
-- **构建**：`npm run build` 优先读取同一文件并写入 `dist/` 的两个 PDF 地址；如果相邻文件不存在（如 GitHub Actions），使用已同步到网站仓库的副本。日志会显示实际来源。
+- **本地预览**：`npm run dev` 每次收到 PDF 请求时读取相邻的 `../CV/Huang-Xiwen-CV.pdf`。更新本地 PDF 后，运行 `python3 scripts/render_cv.py ../CV/Huang-Xiwen-CV.pdf site/cv/index.html` 更新网页正文；PDF 下载无需重启服务。
+- **构建**：`npm run build` 优先读取同一文件并写入 `dist/` 的两个 PDF 地址，同时从 PDF 提取文字生成适合窄屏的 CV 正文。如果相邻文件不存在（如 GitHub Actions），使用已同步到网站仓库的副本。构建需安装 Poppler 的 `pdftotext`（macOS：`brew install poppler`；GitHub Actions 自动安装）。
 - **自定义位置**：可通过 `CV_SOURCE=/absolute/path/Huang-Xiwen-CV.pdf npm run build`（或 `npm run dev`）指定文件。显式指定的文件缺失或内容不是 PDF 时会报错，不会悄悄发布旧副本。
 - **缓存**：构建自动为 PDF 链接添加基于文件内容的版本号，更新 PDF 后链接自动变化。
-- **范围**：CV 页面直接展示同一份 PDF；其他页面的项目和新闻文案仍单独维护。
+- **范围**：CV 页面正文和下载均来自同一份 PDF；其他页面的项目和新闻文案仍单独维护。新增或改名 PDF 中的大章节时，检查 `scripts/render_cv.py` 的识别结果。
 
 ### GitHub 一次性配置
 
@@ -110,6 +110,6 @@ git push
 3. 提交并推送本网站的改动，以及 CV 仓库的 `.github/workflows/sync-website.yml`。首次也可在 CV 仓库 Actions → **Sync PDF to personal website** → **Run workflow** 手动同步。
 4. 检查 CV 同步 Action 与网站 Pages Action 均成功。之后只需在 CV 仓库更新、提交并推送 PDF 到 `main`。发布完成后网站提供新文件，通常需要几分钟。
 
-同步只复制 PDF，不复制私有仓库的 LaTeX 或其他文件。PDF 内容不变时不会重复提交。如果 token 过期、分支保护阻止直接推送或同步失败，网站会继续提供上次成功发布的文件；在 CV 仓库 Actions 中查看报错，修复后重跑。请按 token 有效期更新 secret。
+同步只复制 PDF；网站的 Pages 构建从 PDF 生成公开的网页正文。不复制私有仓库的 LaTeX 或其他文件。PDF 内容不变时不会重复提交。如果 token 过期、分支保护阻止直接推送或同步失败，网站会继续提供上次成功发布的文件；在 CV 仓库 Actions 中查看报错，修复后重跑。请按 token 有效期更新 secret。
 
 使用 personal access token 是为了跨仓库写入并触发网站的 push 部署；默认 `GITHUB_TOKEN` 无法完成这一链路。参见 [GitHub 官方说明](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token)。
