@@ -3,6 +3,7 @@
   color-scheme: light;
   --global-bg-color: #f8fafd;
   --global-text-color: #243246;
+  --global-body-text-color: #314155;
   --global-text-color-light: #526174;
   --global-theme-color: #176394;
   --global-hover-color: #104e78;
@@ -33,6 +34,7 @@ html[data-theme="dark"] {
   color-scheme: dark;
   --global-bg-color: #101923;
   --global-text-color: #ecf2f8;
+  --global-body-text-color: #dce7f2;
   --global-text-color-light: #b7c7d8;
   --global-theme-color: #83c0f0;
   --global-hover-color: #b4dcfb;
@@ -204,7 +206,7 @@ body.page-home > .container[role="main"] { margin-top: 40px !important; }
   font-size: 16.5px;
   line-height: 1.5;
   margin: 0 0 20px;
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
 }
 .intro-role a { font-weight: 500; }
 .intro-lead {
@@ -219,7 +221,7 @@ body.page-home > .container[role="main"] { margin-top: 40px !important; }
   text-wrap: wrap;
 }
 .intro-copy > p:not(.eyebrow):not(.intro-role):not(.intro-lead) {
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
   font-size: 16.5px;
   line-height: 1.65;
   max-width: min(38em, 100%);
@@ -295,8 +297,8 @@ a.button-secondary { background: var(--ui-surface); color: var(--global-theme-co
 a.button-secondary:hover { background: var(--ui-inset); color: var(--global-hover-color); }
 a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
 .intro-contact { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
-.intro-email { font-size: var(--type-small); line-height: 1.4; color: var(--global-text-color-light); }
-.intro-email:hover { color: var(--global-theme-color); }
+.intro-email { font-size: var(--type-small); line-height: 1.4; color: var(--global-theme-color); }
+.intro-email:hover { color: var(--global-hover-color); }
 .intro-github { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--global-text-color); font-size: 27px; line-height: 1; text-decoration: none; border-radius: 50%; }
 .intro-github:hover { color: var(--global-theme-color); text-decoration: none; }
 /* Calm chapter spacing with a clear typographic hierarchy. */
@@ -355,7 +357,7 @@ a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
   margin: 0 0 1em;
   font-size: 16.5px;
   line-height: 1.7;
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
 }
 .about-bio > p:last-child,
 .about-columns > div > p:last-child { margin-bottom: 0; }
@@ -456,7 +458,7 @@ html[data-theme="dark"] .method-figure img.diagram-dark { display: block; }
 .research-card-copy > p:not(.eyebrow):not(.research-status) {
   font-size: 15.5px;
   line-height: 1.6;
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
   margin: 0 0 14px;
 }
 .research-status {
@@ -523,7 +525,7 @@ html[data-theme="dark"] .method-figure img.diagram-dark { display: block; }
 .news td p {
   font-size: 15.5px;
   line-height: 1.6;
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
   margin: 0;
 }
 /* Manuscript and contact are quiet, distinct closing moments. */
@@ -552,7 +554,7 @@ html[data-theme="dark"] .method-figure img.diagram-dark { display: block; }
   margin: 12px 0 10px;
 }
 .manuscript-entry p {
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
   font-size: 15.5px;
   line-height: 1.6;
   margin: 0 0 .55em;
@@ -612,7 +614,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
 .post-description {
   font-size: 17.5px;
   line-height: 1.5;
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
   max-width: 42em;
   margin: 0;
 }
@@ -649,7 +651,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
   margin: 0 0 10px;
 }
 .research-row .eyebrow { margin: 0 0 8px; }
-.research-row-copy > p:not(.eyebrow) { font-size: 15.5px; line-height: 1.6; color: var(--global-text-color-light); margin: 0; }
+.research-row-copy > p:not(.eyebrow) { font-size: 15.5px; line-height: 1.6; color: var(--global-body-text-color); margin: 0; }
 .research-row .project-role {
   line-height: 1.55;
   font-size: 13.5px !important;
@@ -706,7 +708,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
 }
 .research-article { max-width: 40em; margin-inline: auto; font-size: 16.5px; line-height: 1.7; }
 .research-article h2 { font-size: 1.3rem; line-height: 1.25; margin: 36px 0 12px; }
-.research-article p { color: var(--global-text-color-light); margin: 0 0 1em; }
+.research-article p { color: var(--global-body-text-color); margin: 0 0 1em; }
 .research-article .method-figure { margin: 0 0 36px; }
 .research-article .method-figure img { border-radius: 20px; border: 0; box-shadow: var(--ui-shadow) !important; }
 .method-figure figcaption {
@@ -763,7 +765,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
 .page-cv .action-links { margin-top: 22px; }
 .cv-readable { max-width: 900px; }
 .cv-readable-contact { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0 0 20px; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
-.cv-readable-contact a { color: var(--global-text-color-light); }
+.cv-readable-contact a { color: var(--global-theme-color); }
 .cv-readable-section { padding: 26px 0 30px; border-top: 1px solid var(--global-divider-color); }
 .page-cv .cv-readable-section { scroll-margin-top: 0; }
 .cv-readable-section h2 { margin: 0 0 19px; font-size: clamp(22px, 2.5vw, 29px); line-height: 1.2; letter-spacing: -.025em; }
@@ -772,7 +774,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
 .cv-readable-section p, .cv-readable-section li, .cv-readable-skills dd {
   max-width: 78ch;
   margin: 0 0 12px;
-  color: var(--global-text-color-light);
+  color: var(--global-body-text-color);
   font-size: 16.5px;
   line-height: 1.7;
   overflow-wrap: anywhere;
@@ -797,7 +799,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
   .cv-readable-skills dt { margin-bottom: 4px; }
 }
 
-.cv-intro > p { color: var(--global-text-color-light); font-size: 16px; line-height: 1.65; margin: 0 0 16px; }
+.cv-intro > p { color: var(--global-body-text-color); font-size: 16px; line-height: 1.65; margin: 0 0 16px; }
 .cv-intro .cv-contact { font-size: 13.5px; line-height: 1.8; }
 .cv-section {
   background: var(--ui-surface);
@@ -832,7 +834,7 @@ html[data-theme="dark"] .contact-strip { background: #1b2a3a; border: 1px solid 
 }
 .cv-entry .cv-organization { font-size: 15px; font-weight: 500; line-height: 1.5; margin: 0 0 4px; }
 .cv-entry .cv-location, .cv-entry .cv-coursework { font-size: 14.5px; line-height: 1.65; }
-.cv-entry > p:not(.cv-score):not(.cv-organization), .cv-entry li { color: var(--global-text-color-light); }
+.cv-entry > p:not(.cv-score):not(.cv-organization), .cv-entry li { color: var(--global-body-text-color); }
 .cv-entry ul { margin: .7em 0; padding-left: 1.15em; }
 .cv-entry li { margin-bottom: 8px; font-size: 15px; line-height: 1.65; }
 .cv-entry > a { font-size: 14px; }
@@ -991,6 +993,7 @@ footer a { color: var(--global-text-color-light); }
   .keynote-enter { animation: none; }
   :root, html[data-theme="dark"] {
     --global-text-color: #111;
+    --global-body-text-color: #222;
     --global-text-color-light: #444;
     --global-divider-color: #ddd;
     --global-theme-color: #0053a6;
