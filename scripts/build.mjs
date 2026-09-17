@@ -38,6 +38,7 @@ async function transform(directory) {
       text = text.replace(/(['"])\/assets\//g, `$1${prefix}/assets/`);
     }
     text = text.replaceAll('https://bighuang-eee.github.io/xiwen-huang.github.io', siteUrl);
+    text = text.replaceAll('https://bighuang-eee.github.io', siteUrl);
     await writeFile(file, text);
   }
 }

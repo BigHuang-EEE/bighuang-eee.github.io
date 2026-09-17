@@ -2,8 +2,8 @@
 
 个人学术网站，内容涵盖 Robotics、Physical Intelligence、Machine Learning 与 Computer Vision。
 
-- 网站：https://bighuang-eee.github.io/xiwen-huang.github.io/
-- GitHub：https://github.com/BigHuang-EEE/xiwen-huang.github.io
+- 网站：https://bighuang-eee.github.io/
+- GitHub：https://github.com/BigHuang-EEE/bighuang-eee.github.io
 - 联系邮箱：standingfloating@gmail.com
 
 ## 本地预览
@@ -64,12 +64,12 @@ npm run preview               # 预览 dist/，先关闭占用 4173 的 dev 服�
 
 本项目同时支持用户主页根路径和普通仓库子路径，GitHub Actions 会自动配置发布地址。
 
-手动检查当前仓库路径：
+手动检查用户主页路径：
 
 ```bash
-SITE_URL=https://bighuang-eee.github.io/xiwen-huang.github.io BASE_PATH=/xiwen-huang.github.io npm run build
-python3 scripts/check.py dist /xiwen-huang.github.io
-BASE_PATH=/xiwen-huang.github.io npm run preview
+SITE_URL=https://bighuang-eee.github.io npm run build
+python3 scripts/check.py dist
+npm run preview
 ```
 
 ## 发布更新

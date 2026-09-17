@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://bighuang-eee.github.io/xiwen-huang.github.io/sitemap.xml
+Sitemap: https://bighuang-eee.github.io/sitemap.xml
