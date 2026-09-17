@@ -294,9 +294,11 @@ a.button-primary:hover { background: #0077ed; color: #fff; box-shadow: 0 5px 16p
 a.button-secondary { background: var(--ui-surface); color: var(--global-theme-color); box-shadow: inset 0 0 0 1px var(--global-divider-color); }
 a.button-secondary:hover { background: var(--ui-inset); color: var(--global-hover-color); }
 a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
-.intro-contact { margin-top: 2px; }
+.intro-contact { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
 .intro-email { font-size: var(--type-small); line-height: 1.4; color: var(--global-text-color-light); }
 .intro-email:hover { color: var(--global-theme-color); }
+.intro-github { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--global-text-color); font-size: 27px; line-height: 1; text-decoration: none; border-radius: 50%; }
+.intro-github:hover { color: var(--global-theme-color); text-decoration: none; }
 /* Calm chapter spacing with a clear typographic hierarchy. */
 .home-section {
   padding: 48px 0;
