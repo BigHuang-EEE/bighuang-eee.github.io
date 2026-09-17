@@ -376,7 +376,7 @@ a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
   color: var(--global-text-color);
 }
 .research-interests ul {
-  margin: 0 0 14px;
+  margin: 0;
   padding: 0 0 0 1.15em;
 }
 .research-interests li {
@@ -386,12 +386,6 @@ a.button-primary:active, a.button-secondary:active { transform: scale(.98); }
   color: var(--global-text-color);
 }
 .research-interests li:last-child { margin-bottom: 0; }
-.research-interests p {
-  margin: 0;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--global-text-color-light);
-}
 .eyebrow {
   color: var(--global-text-color-light);
   font-size: var(--type-small);
