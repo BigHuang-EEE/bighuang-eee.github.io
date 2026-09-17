@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readCV, writeCV, versionCVLinks } from './cv.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const config = JSON.parse(await readFile(path.join(root, 'site.config.json'), 'utf8'));
@@ -15,9 +16,12 @@ if (basePath && !/^[a-zA-Z0-9_./-]+$/.test(basePath)) throw new Error('Invalid b
 const prefix = basePath ? `/${basePath}` : '';
 const siteUrl = `${parsedUrl?.origin ?? 'http://localhost:4173'}${prefix}`;
 const output = path.join(root, 'dist');
+const cv = await readCV();
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await cp(path.join(root, 'site'), output, { recursive: true });
+await writeCV(output, cv);
+console.log(`CV: ${cv.source} (${cv.version})`);
 
 async function transform(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -27,6 +31,7 @@ async function transform(directory) {
     let text = await readFile(file, 'utf8');
     // Rewrite only URL-bearing attributes; preserve text, scripts, and layout.
     if (entry.name.endsWith('.html')) {
+      text = versionCVLinks(text, cv.version);
       text = text.replace(/\b(href|src|action|poster|data-src)=(['"])\/(?!\/)/g, `$1=$2${prefix}/`);
       text = text.replace(/\bsrcset=(['"])(.*?)\1/g, (_, quote, value) =>
         `srcset=${quote}${value.replace(/(^|,\s*)\/(?!\/)/g, `$1${prefix}/`)}${quote}`);

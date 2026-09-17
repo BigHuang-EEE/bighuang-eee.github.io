@@ -3,6 +3,7 @@ import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { cvNames, readCV } from './cv.mjs';
 
 const project = fileURLToPath(new URL('../', import.meta.url));
 const root = path.resolve(project, process.argv[2] || 'site');
@@ -28,6 +29,18 @@ const server = http.createServer(async (req, res) => {
       res.writeHead(404).end('Not found'); return;
     }
     pathname = pathname.slice(prefix.length) || '/';
+    // Resolve on every request, so replacing the PDF needs no server restart.
+    if (root === path.join(project, 'site') && cvNames.some(name => pathname === `/assets/pdf/${name}`)) {
+      try {
+        const cv = await readCV();
+        res.writeHead(200, { 'Content-Type': 'application/pdf', 'Content-Length': cv.bytes.length, 'Cache-Control': 'no-store' });
+        res.end(req.method === 'HEAD' ? undefined : cv.bytes);
+      } catch (error) {
+        console.error(error.message);
+        res.writeHead(503, { 'Cache-Control': 'no-store' }).end('CV unavailable. Check CV_SOURCE and the source PDF.');
+      }
+      return;
+    }
     let file = path.resolve(root, `.${pathname}`);
     if (file !== root && !file.startsWith(`${root}${path.sep}`)) {
       res.writeHead(403).end('Forbidden'); return;

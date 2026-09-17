@@ -756,6 +756,19 @@ html[data-theme="dark"] .contact-strip { background: #171719; border: 1px solid 
 #toc-sidebar .toc-link:hover, #toc-sidebar .is-active-link { color: var(--global-theme-color); }
 #toc-sidebar .toc-link::before { display: none; }
 .cv-intro { margin-bottom: 28px; }
+.cv-pdf-viewer {
+  display: block;
+  width: 100%;
+  height: min(82vh, 1100px);
+  min-height: 560px;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 20px;
+  background: var(--ui-surface);
+}
+@media (max-width: 600px) {
+  .cv-pdf-viewer { min-height: 420px; height: 70vh; border-radius: 12px; }
+}
+
 .cv-intro > p { color: var(--global-text-color-light); font-size: 16px; line-height: 1.65; margin: 0 0 16px; }
 .cv-intro .cv-contact { font-size: 13.5px; line-height: 1.8; }
 .cv-section {
