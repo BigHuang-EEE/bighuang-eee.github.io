@@ -13,6 +13,8 @@ pdf = Path(sys.argv[1])
 page = Path(sys.argv[2])
 start_marker = '<!-- CV_CONTENT_START -->'
 end_marker = '<!-- CV_CONTENT_END -->'
+nav_start_marker = '<!-- CV_NAV_START -->'
+nav_end_marker = '<!-- CV_NAV_END -->'
 
 result = subprocess.run(
     ['pdftotext', '-layout', '-enc', 'UTF-8', str(pdf), '-'],
@@ -70,6 +72,11 @@ def joined(parts):
 
 def slug(value):
     return re.sub(r'[^a-z0-9]+', '-', value.lower()).strip('-')
+
+nav_labels = {
+    'Research & Project Experience': 'Research Experience',
+    'Skill Set': 'Skills',
+}
 
 def row_parts(line):
     parts = re.split(r'\s{3,}', line)
@@ -140,9 +147,21 @@ for title, content in sections:
 out.append('</div>')
 
 source = page.read_text()
-if source.count(start_marker) != 1 or source.count(end_marker) != 1:
-    raise SystemExit('CV content markers missing or duplicated in website page')
-begin = source.index(start_marker) + len(start_marker)
-end = source.index(end_marker)
-page.write_text(source[:begin] + '\n' + '\n'.join(out) + '\n' + source[end:])
+nav = ['<ul>']
+for title, _ in sections:
+    nav.append(f'<li><a href="#{slug(title)}">{escape(nav_labels.get(title, title))}</a></li>')
+nav.append('</ul>')
+
+def replace_between(source, start, end, content):
+    if source.count(start) != 1 or source.count(end) != 1:
+        raise SystemExit(f'CV markers missing or duplicated in website page: {start}')
+    begin = source.index(start) + len(start)
+    finish = source.index(end)
+    if finish < begin:
+        raise SystemExit(f'CV markers out of order: {start}')
+    return source[:begin] + '\n' + '\n'.join(content) + '\n' + source[finish:]
+
+source = replace_between(source, nav_start_marker, nav_end_marker, nav)
+source = replace_between(source, start_marker, end_marker, out)
+page.write_text(source)
 print(f'Rendered {len(sections)} readable CV sections from {pdf}')

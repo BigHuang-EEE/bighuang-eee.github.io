@@ -19,7 +19,7 @@ npm run dev
 
 - Research：空中操作安全强化学习、LLM 幻觉与弃答、通用类血管结构分割、可微仿真四足机器人运动策略，共 4 个项目及详情页。
 - Publications：`Physics-Consistent Safe RL for Aerial Manipulation`，第二作者，拟投 ICRA 2027，状态为准备中。
-- CV：把最新版 PDF 的文字自动整理成适合桌面和手机阅读的网页，并提供原版 PDF 下载。
+- CV：把最新版 PDF 的文字自动整理成适合桌面和手机阅读的网页；桌面左侧显示一级章节导航，手机显示横向章节导航，并提供原版 PDF 下载。
 - Updates：5 条依据简历时间线整理的动态。
 - 研究配图：基于简历绘制的 SVG 方法示意图，不是实验照片或论文原图。每项研究均有 `overview.svg` 和 `overview-dark.svg` 两个主题版本。
 - 下载简历：唯一维护源为私有仓库 `BigHuang-EEE/CV` 的 `Huang-Xiwen-CV.pdf`。网站中的 PDF 是自动同步的发布副本；旧地址 `CV_general.pdf` 保持兼容。
