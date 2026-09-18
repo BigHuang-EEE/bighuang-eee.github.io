@@ -31,7 +31,7 @@ header = ' '.join(lines[:first_section])
 known_headings = {
     'Education', 'Research Interest', 'Research Interests', 'Honors & Awards',
     'Publication', 'Publications', 'Research & Project Experience',
-    'Professional Experience', 'Skill Set', 'Skills',
+    'Professional Experience', 'Skill Set', 'Skills', 'Languages',
 }
 
 def heading(line, previous_blank):
@@ -102,7 +102,7 @@ for title, content in sections:
         out.append('</ul>')
     elif title in ('Research Interest', 'Research Interests'):
         out.append(f'<p>{escape(joined(content))}</p>')
-    elif title in ('Skill Set', 'Skills'):
+    elif title in ('Skill Set', 'Skills', 'Languages'):
         out.append('<dl class="cv-readable-skills">')
         for line in content:
             if ':' in line:
