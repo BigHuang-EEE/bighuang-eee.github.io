@@ -245,9 +245,9 @@ body.page-home > .container[role="main"] { margin-top: 40px !important; }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1;
   object-fit: cover;
-  object-position: 52% center;
+  object-position: center;
   border-radius: 22px;
 }
 .intro-portrait figcaption {
